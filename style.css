@@ -1,0 +1,63 @@
+@font-face {
+    font-family: headerFont;
+    src: url('fonts/Redressed-Regular.ttf');
+}
+
+:root {
+    
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url('images/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+}
+
+.header {
+    background-color: #292524; /* Stone 800 */
+    padding: 10px 50px 10px 50px;
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: headerFont;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.book-header {
+    display: flex;
+    justify-content: center;
+}
+
+.book-header .add-book-btn {
+    background-color: #292524; /* Stone 800 */
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    padding: 15px 32px;
+    font-weight: bold;
+    font-family: headerFont;
+    text-align: center;
+    display: inline-block;
+    font-size: 32px;
+}
+
+.books {
+    margin: 30px 100px 30px 100px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(250px, 1fr));
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.books .card {
+    background-color: #292524;
+    color: white;
+
+}
