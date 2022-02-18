@@ -30,12 +30,12 @@ body {
     align-items: center;
 }
 
-.book-header {
+.add-btn-container {
     display: flex;
     justify-content: center;
 }
 
-.book-header .add-book-btn {
+.add-btn-container .add-book-btn {
     background-color: #292524; /* Stone 800 */
     border: 1px solid white;
     border-radius: 20px;
@@ -51,7 +51,7 @@ body {
     opacity: 0.8;
 }
 
-.book-header .add-book-btn:hover {
+.add-btn-container .add-book-btn:hover {
     opacity: 1;
 }
 
@@ -64,13 +64,57 @@ body {
     gap: 30px;
 }
 
-.books .card {
+.books .card[data-key] {
     background-color: #292524;
     color: white;
     border-radius: 8px;
     border: 5px solid darkred;
 
+    padding: 10px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.card .delete-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*Look of button*/
+.card .delete-btn {
+
+}
+
+.card .book-main {
+
+}
+
+.card .book-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.card .book-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.books .card .title {
+    font-size: 32px;
+}
+
+.books .card .author {
+    font-size: 20px;
+}
+
 
 #book-form {
     background-color: beige;
@@ -86,9 +130,9 @@ body {
     top: 30%;
 
     width: 350px;
-    height: 500px;
+    height: 600px;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -117,12 +161,30 @@ body {
     font-size: 20px;
 }
 
-#book-form input {
+#book-form #title, 
+#book-form #author,
+#book-form #pages {
     width: 100%;
     padding: 15px;
     margin: 5px 0 20px 0;
     border: 1px solid brown;
     background: #eee;
+}
+
+#book-form .check-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    gap: 10px;
+}
+
+.check-group .radio-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #book-form .btn-container {

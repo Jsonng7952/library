@@ -13,13 +13,27 @@
 
     <div class="header">
         <div class="title">Library</div>
-        <div class="book-header">
+        <div class="add-btn-container">
             <button class="add-book-btn">Add Book</button>
         </div>
         <div class="login-btn">Login</div>
     </div>
 
-    <div class="books"></div>        
+    <div class="books">
+        <div class="card" data-key="100">
+            <div class="delete-btn-container">
+                <button class="delete-btn">x</button> 
+            </div>
+            <div class="book-main">
+                <div class="title">Game of Thrones</div>
+                <div class="author">George R. R. Martin</div>                
+            </div>
+            <div class="book-footer">
+                <div class="pages">Pages: 694</div>
+                <div class="isRead">Finished: true</div>                           
+            </div>
+        </div>
+    </div>        
 
     <form id="book-form">
         <div class="form-title">Create Book Entry</div>
@@ -36,7 +50,17 @@
             <div class="form-group">
                 <label for="pages">Pages*</label>
                 <input type="number" id="pages" name="pages" min="0">            
-            </div>            
+            </div>      
+            <div class="check-group">
+                <div>Did you Finish the Book?</div>
+                <div class="radio-group">
+                    <input type="radio" id="isReadYes" name="isRead" checked>  
+                    <label for="isReadYes">Yes</label>
+
+                    <input type="radio" id="isReadNo" name="isRead">  
+                    <label for="isReadNo">No</label>                     
+                </div>
+            </div>                    
         </div>
 
         <div class="btn-container">
