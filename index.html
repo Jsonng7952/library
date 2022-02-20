@@ -20,7 +20,8 @@
     </div>
 
     <div class="books">
-        <div class="card" data-key="100">
+        <!--
+        <div class="card" data-key="999">
             <div class="delete-btn-container">
                 <button class="delete-btn">x</button> 
             </div>
@@ -30,9 +31,14 @@
             </div>
             <div class="book-footer">
                 <div class="pages">Pages: 694</div>
-                <div class="isRead">Finished: true</div>                           
+                <div class="isRead">Finished?
+                    <label class="switch">
+                        <input type="checkbox" id="toggle-read">
+                    </label>
+                </div>                           
             </div>
-        </div>
+        </div>            
+        -->
     </div>        
 
     <form id="book-form">
@@ -41,24 +47,24 @@
         <div class="form-row">
             <div class="form-group">
                 <label for="title">Title*</label>
-                <input type="text" id="title" name="title">            
+                <input type="text" id="title" name="title" required>            
             </div>
             <div class="form-group">
                 <label for="author">Author*</label>
-                <input type="text" id="author" name="author">            
+                <input type="text" id="author" name="author" required>            
             </div>
             <div class="form-group">
                 <label for="pages">Pages*</label>
-                <input type="number" id="pages" name="pages" min="0">            
+                <input type="number" id="pages" name="pages" min="0" required>            
             </div>      
             <div class="check-group">
                 <div>Did you Finish the Book?</div>
                 <div class="radio-group">
-                    <input type="radio" id="isReadYes" name="isRead" checked>  
-                    <label for="isReadYes">Yes</label>
+                    <input type="radio" id="isreadyes" name="isread" checked>  
+                    <label for="isreadyes">Yes</label>
 
-                    <input type="radio" id="isReadNo" name="isRead">  
-                    <label for="isReadNo">No</label>                     
+                    <input type="radio" id="isreadno" name="isread">  
+                    <label for="isreadno">No</label>                     
                 </div>
             </div>                    
         </div>

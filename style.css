@@ -86,7 +86,7 @@ body {
 
 /*Look of button*/
 .card .delete-btn {
-
+    cursor: pointer;
 }
 
 .card .book-main {
@@ -114,7 +114,6 @@ body {
 .books .card .author {
     font-size: 20px;
 }
-
 
 #book-form {
     background-color: beige;
@@ -206,4 +205,8 @@ body {
 
 #book-form .btn-container button:hover {
     opacity: 1;
+}
+
+#toggle-read {
+    cursor: pointer;
 }

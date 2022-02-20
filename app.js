@@ -38,21 +38,35 @@ function displayBook(book) {
     newPages.classList.add('pages');
     const newRead = document.createElement('div');
     newRead.classList.add('isRead');
+    newRead.textContent = "Finished?";
+    const readSwitch = document.createElement('label');
+    readSwitch.classList.add('switch');
+    const checkBox = document.createElement('input');
+    checkBox.type = "checkbox";    
+    checkBox.id = "toggle-read";
+    readSwitch.appendChild(checkBox);
+    newRead.appendChild(readSwitch);
     bookFooter.appendChild(newPages);
     bookFooter.appendChild(newRead);
     newCard.appendChild(bookFooter);
 
     // Assign the new entry with with the data attribute.
     newCard.dataset.key = `${myLibrary.length}`;
+    deleteBtn.dataset.key = `${myLibrary.length}`;
+    checkBox.dataset.key = `${myLibrary.length}`;
+
+    // Create a listener for the delete button.
+    deleteBtn.addEventListener('click', (e) => removeBook(e.target.dataset.key));
+
+    // Create a listener for the read toggle.
+    checkBox.addEventListener('click', (e) => toggleRead(e.target.dataset.key))
 
     newTitle.textContent = `${book.title}`;
     newAuthor.textContent = `${book.author}`;
     newPages.textContent = `Pages: ${book.pages}`;
-    newRead.textContent = `Finished: ${book.isRead}`;
+    checkBox.checked = book.isRead;
 
     bookContainer.appendChild(newCard);    
-
-    myLibrary.push(book);   // Adds the book object into the array
 } 
 
 function createBook() {
@@ -60,22 +74,41 @@ function createBook() {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
-    const isReadYes = document.getElementById('isReadYes').checked;
+    const isReadYes = document.getElementById('isreadyes').checked;
 
     let book;
     if(isReadYes === true){
-        book = new Book(title, author, pages, "Yes");
+        book = new Book(title, author, pages, true);
     }
     else {
-        book = new Book(title, author, pages, "No");
+        book = new Book(title, author, pages, false);
     }
     
     displayBook(book);
+    myLibrary.push(book);   // Adds the book object into the array
 
-    // Clear form input fields
+    // Close and clear form.
+    bookForm.style.display = "none";
     document.getElementById('title').value = '';
     document.getElementById('author').value = '';
     document.getElementById('pages').value = '';
+    document.getElementById('isreadyes').checked = true;
+}
+
+function removeBook(bookId) {
+    if(typeof myLibrary[bookId] !== 'undefined'){
+        delete myLibrary[bookId];
+
+        const getCard = document.querySelector(`.books .card[data-key="${bookId}"]`);
+        bookContainer.removeChild(getCard);
+    }
+}
+
+function toggleRead(bookId) {
+    if(typeof myLibrary[bookId] !== 'undefined'){
+        const getReadStatus = document.querySelector(`#toggle-read[data-key="${bookId}"]`).checked;
+        myLibrary[bookId].isRead = getReadStatus;
+    }
 }
 
 function showForm(){
@@ -90,6 +123,7 @@ function hideForm(event){
         document.getElementById('title').value = '';
         document.getElementById('author').value = '';
         document.getElementById('pages').value = '';
+        document.getElementById('isreadyes').checked = true;
     }
 }
 
@@ -105,6 +139,8 @@ const cancelBtn = document.querySelector('.cancel-btn');
 cancelBtn.addEventListener('click', hideForm);
 
 const bookForm = document.querySelector('#book-form');
+
+const toggleReadBtn = document.querySelector('#toggle-read');
 
 //window.addEventListener('click', hideForm);
 
