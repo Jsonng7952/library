@@ -142,5 +142,3 @@ const bookForm = document.querySelector('#book-form');
 
 const toggleReadBtn = document.querySelector('#toggle-read');
 
-//window.addEventListener('click', hideForm);
-

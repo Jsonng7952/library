@@ -3,8 +3,9 @@
     src: url('fonts/Redressed-Regular.ttf');
 }
 
-:root {
-    
+@font-face {
+    font-family: bookFont;
+    src: url('fonts/Staatliches-Regular.ttf');
 }
 
 body {
@@ -31,15 +32,14 @@ body {
 }
 
 .add-btn-container {
-    display: flex;
-    justify-content: center;
+    white-space: nowrap;
 }
 
 .add-btn-container .add-book-btn {
     background-color: #292524; /* Stone 800 */
-    border: 1px solid white;
+    border: 1px solid #ffffff;
     border-radius: 20px;
-    color: white;
+    color: #ffffff;
     padding: 15px 32px;
     font-weight: bold;
     font-family: headerFont;
@@ -56,19 +56,27 @@ body {
 }
 
 .books {
-    margin: 30px 100px 30px 100px;
+    margin: 60px 100px 60px 100px;
     display: grid;
     grid-template-columns: repeat(auto-fit, 275px);
     grid-template-rows: repeat(2, 350px);
     grid-auto-rows: 350px;
-    gap: 30px;
+    gap: 60px;
 }
 
+/*Look of each book*/
 .books .card[data-key] {
     background-color: #292524;
     color: white;
     border-radius: 8px;
-    border: 5px solid darkred;
+    border: 5px solid #a52a2a;
+    font-family: bookFont;
+
+    box-shadow: rgba(255, 255, 255) 5px -5px, 
+                rgba(255, 255, 255) 10px -10px, 
+                rgba(255, 255, 255) 15px -15px, 
+                rgba(255, 255, 255) 20px -20px, 
+                rgb(165, 42, 42) 25px -25px;
 
     padding: 10px;
     display: flex;
@@ -84,13 +92,14 @@ body {
     justify-content: flex-end;
 }
 
-/*Look of button*/
+/*Look of delete button*/
 .card .delete-btn {
     cursor: pointer;
-}
-
-.card .book-main {
-
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .card .book-main {
@@ -98,7 +107,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .card .book-footer {
@@ -107,17 +116,23 @@ body {
     justify-content: space-between;
 }
 
+.isRead {
+    display: flex;
+    text-align: center;
+}
+
 .books .card .title {
-    font-size: 32px;
+    font-size: 36px;
+    font-weight: bold;
 }
 
 .books .card .author {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 #book-form {
-    background-color: beige;
-    border: 5px solid burlywood;
+    background-color: #f5f5dc;
+    border: 5px solid #deb887;
     border-radius: 8px;
     font-family: headerFont;
 
@@ -166,7 +181,7 @@ body {
     width: 100%;
     padding: 15px;
     margin: 5px 0 20px 0;
-    border: 1px solid brown;
+    border: 1px solid #a52a2a;
     background: #eee;
 }
 
@@ -197,8 +212,8 @@ body {
     background-color: #292524;
     font-size: 20px;
     padding: 12px 20px;
-    border: 1px solid black;
-    color: white;
+    border: 1px solid #000000;
+    color: #ffffff;
     cursor: pointer;
     opacity: 0.8;
 }
